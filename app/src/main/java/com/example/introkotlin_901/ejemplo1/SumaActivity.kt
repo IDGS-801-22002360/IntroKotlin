@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.introkotlin_901.R
+import android.widget.Button
+import android.widget.Toast
 
 class SumaActivity : AppCompatActivity() {
 
@@ -16,25 +18,13 @@ class SumaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_suma)
 
-        txtnum1 = findViewById(R.id.txtnum1)
-        txtnum2 = findViewById(R.id.txtnum2)
-        txtRes = findViewById(R.id.txtRes)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val myButton = findViewById<Button>(R.id.btnCalcular)
+        myButton.setOnClickListener {
+            // Code to execute when the button is clicked
+            Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    fun calcular(view: android.view.View) {
-        val num1 = txtnum1.text.toString().toInt()
-        val num2 = txtnum2.text.toString().toInt()
-        val res = num1 + num2
-        txtRes.setText(res.toString())
     }
 
 }
